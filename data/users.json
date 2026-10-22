@@ -11,15 +11,59 @@
     "createdAt": "2026-10-20T12:00:00.000Z"
   },
   {
+    "id": "usr_thamarai_cbe_01",
+    "fullName": "Thamarai",
+    "email": "thamarai@trava.org",
+    "phone": "+91 98420 77889",
+    "passwordHash": "$2a$10$7lF3dEbw.LcdVVW7kkfJIeSywU0TypbxEajuc8yQPmKOA8N2S1GY.",
+    "role": "PASSENGER",
+    "pointsBalance": 150,
+    "isDemoAccount": true,
+    "createdAt": "2026-10-21T08:00:00.000Z"
+  },
+  {
     "id": "usr_demo_coimbatore_01",
     "fullName": "Sam",
+    "email": "sam@trava.org",
+    "phone": "+91 98421 10095",
+    "passwordHash": "$2a$10$7lF3dEbw.LcdVVW7kkfJIeSywU0TypbxEajuc8yQPmKOA8N2S1GY.",
+    "role": "PASSENGER",
+    "pointsBalance": 100,
+    "isDemoAccount": true,
+    "createdAt": "2026-10-20T12:47:39.529Z"
+  },
+  {
+    "id": "usr_demo_alias_sam",
+    "fullName": "Sam (Demo)",
     "email": "demo@trava.org",
     "phone": "+91 98421 10095",
     "passwordHash": "$2a$10$7lF3dEbw.LcdVVW7kkfJIeSywU0TypbxEajuc8yQPmKOA8N2S1GY.",
     "role": "PASSENGER",
-    "pointsBalance": 50,
+    "pointsBalance": 100,
     "isDemoAccount": true,
     "createdAt": "2026-10-20T12:47:39.529Z"
+  },
+  {
+    "id": "usr_deepika_cbe_05",
+    "fullName": "Deepika",
+    "email": "deepika@trava.org",
+    "phone": "+91 98422 33445",
+    "passwordHash": "$2a$10$7lF3dEbw.LcdVVW7kkfJIeSywU0TypbxEajuc8yQPmKOA8N2S1GY.",
+    "role": "PASSENGER",
+    "pointsBalance": 180,
+    "isDemoAccount": false,
+    "createdAt": "2026-10-21T09:00:00.000Z"
+  },
+  {
+    "id": "usr_harani_cbe_06",
+    "fullName": "Harani",
+    "email": "harani@trava.org",
+    "phone": "+91 98423 55667",
+    "passwordHash": "$2a$10$7lF3dEbw.LcdVVW7kkfJIeSywU0TypbxEajuc8yQPmKOA8N2S1GY.",
+    "role": "PASSENGER",
+    "pointsBalance": 160,
+    "isDemoAccount": false,
+    "createdAt": "2026-10-21T09:30:00.000Z"
   },
   {
     "id": "usr_priya_cbe_02",
