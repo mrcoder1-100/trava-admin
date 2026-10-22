@@ -575,30 +575,19 @@
       <h1 class="auth-title">TRAVA SUPER ADMIN</h1>
       <p class="auth-sub">Internal Trava Operations & Governance Platform.<br>Restricted to Trava Team Personnel.</p>
       
-      <!-- Dedicated Credential Helper Pill -->
-      <div style="background:rgba(16,185,129,0.12); border:1px solid rgba(16,185,129,0.3); border-radius:12px; padding:10px 14px; margin-bottom:18px; text-align:left; font-size:12px;">
-        <div style="font-weight:800; color:#34D399; margin-bottom:2px;">🔑 DEDICATED ADMIN CREDENTIALS:</div>
-        <div>Email: <strong style="color:#FFFFFF;">trava.admin@trava.org</strong></div>
-        <div>Passkey: <strong style="color:#FFFFFF;">TravaAdmin@2026</strong></div>
-      </div>
-
       <form id="admin-login-form" onsubmit="handleAdminLogin(event)">
         <div class="form-row" style="text-align:left;">
           <label>Admin ID / Email</label>
-          <input type="text" id="admin-user-input" class="form-control" value="trava.admin@trava.org" required>
+          <input type="email" id="admin-user-input" class="form-control" placeholder="Enter administrative email" autocomplete="username" required>
         </div>
         <div class="form-row" style="text-align:left;">
           <label>Master Passkey</label>
-          <input type="password" id="admin-pass-input" class="form-control" value="TravaAdmin@2026" required>
+          <input type="password" id="admin-pass-input" class="form-control" placeholder="Enter administrative passkey" autocomplete="current-password" required>
         </div>
-        <button type="submit" class="btn-action-primary" style="width:100%; justify-content:center; padding:12px; font-size:14px; margin-bottom:12px;">
+        <button type="submit" class="btn-action-primary" style="width:100%; justify-content:center; padding:12px; font-size:14px; margin-top:8px;">
           🚀 Sign In as Trava Super Admin
         </button>
       </form>
-
-      <button type="button" class="btn-action-secondary" style="width:100%; justify-content:center; padding:9px; font-size:12.5px;" onclick="instantAdminLogin()">
-        ⚡ 1-Click Team Bypass Sign In
-      </button>
     </div>
   </div>
 
@@ -1270,13 +1259,6 @@
       }
     }
 
-    function instantAdminLogin() {
-      sessionStorage.setItem('trava_admin_auth', 'true');
-      adminState.isAuth = true;
-      checkAuth();
-      showToast('Authenticated via 1-Click Team Access');
-      syncAllData();
-    }
 
     function adminLogout() {
       sessionStorage.removeItem('trava_admin_auth');

@@ -44,40 +44,36 @@ const adminHtmlPath = fs.existsSync(path.resolve(__dirname, '../index.html'))
   ? path.resolve(__dirname, '../index.html')
   : (fs.existsSync(path.resolve(__dirname, '../admin.html')) ? path.resolve(__dirname, '../admin.html') : path.join(bakeryWebDir, 'admin.html'));
 
-app.use('/bakery', express.static(bakeryWebDir));
-app.use(express.static(bakeryWebDir));
-app.use(express.static(path.resolve(__dirname, '../')));
+// Serve Super Admin Portal directly at root / and /admin
+app.get('/', (req, res) => {
+  if (fs.existsSync(adminHtmlPath)) return res.sendFile(adminHtmlPath);
+  res.sendFile(path.join(bakeryWebDir, 'admin.html'));
+});
 
-app.get('/partner', (req, res) => res.redirect('/bakery/partner.html'));
-app.get('/partners', (req, res) => res.redirect('/bakery/partner.html'));
 app.get('/admin', (req, res) => {
   if (fs.existsSync(adminHtmlPath)) return res.sendFile(adminHtmlPath);
   res.sendFile(path.join(bakeryWebDir, 'admin.html'));
 });
+
+app.get('/admin.html', (req, res) => {
+  if (fs.existsSync(adminHtmlPath)) return res.sendFile(adminHtmlPath);
+  res.sendFile(path.join(bakeryWebDir, 'admin.html'));
+});
+
 app.get('/admin-portal', (req, res) => res.redirect('/admin'));
+
+// Bakery partner portal
+app.use('/bakery', express.static(bakeryWebDir));
+app.get('/partner', (req, res) => res.redirect('/bakery/partner.html'));
+app.get('/partners', (req, res) => res.redirect('/bakery/partner.html'));
+
+// Static assets from project root
+app.use(express.static(path.resolve(__dirname, '../')));
 
 // Serve Trava IVR & Toll-Free Simulator at /ivr
 const publicDir = path.resolve(__dirname, '../public');
-app.use(express.static(publicDir));
+app.use('/ivr', express.static(publicDir));
 app.get('/ivr', (req, res) => res.sendFile(path.join(publicDir, 'ivr.html')));
-
-// Root route: Serve Super Admin Portal in browser, or API status for JSON clients
-app.get('/', (req, res) => {
-  if (req.headers.accept && req.headers.accept.includes('text/html') && fs.existsSync(adminHtmlPath)) {
-    return res.sendFile(adminHtmlPath);
-  }
-  res.json({
-    app: config.branding.appName,
-    tagline: config.branding.tagline,
-    subtitle: config.branding.subtitle,
-    city: config.branding.city,
-    status: 'ONLINE',
-    version: '1.0.0',
-    endpoints: '/api/v1',
-    adminPortal: '/admin',
-    bakeryVerificationPortal: '/bakery'
-  });
-});
 
 app.get('/health', (req, res) => {
   res.json({ status: 'UP', timestamp: new Date().toISOString() });
