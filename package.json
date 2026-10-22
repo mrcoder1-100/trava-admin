@@ -1,0 +1,23 @@
+{
+  "name": "trava-admin-console",
+  "version": "1.0.0",
+  "description": "Trava Core Team Super Admin Portal for Public Transit & Merchant Partner Governance",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "trava",
+    "transit",
+    "admin",
+    "smart-city"
+  ],
+  "author": "Trava Team",
+  "license": "ISC"
+}
